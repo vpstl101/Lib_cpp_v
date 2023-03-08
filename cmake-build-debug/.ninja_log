@@ -1,0 +1,6 @@
+# ninja log v5
+2	145	6999795168016768	build.ninja	afabdf5a92c6f0f5
+1	553	6999003739475050	CMakeFiles/LibProject1.dir/main.cpp.obj	c74996442f662cd3
+0	579	6999002544946498	CMakeFiles/LibProject1.dir/Member.cpp.obj	14194fe70946fe25
+7	580	6999002544966489	CMakeFiles/LibProject1.dir/LibManager.cpp.obj	d463c68337b02e0b
+554	732	6999003740945088	LibProject1.exe	e4e0f36d5b3f5d57
