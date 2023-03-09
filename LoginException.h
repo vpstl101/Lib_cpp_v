@@ -12,14 +12,13 @@ using namespace std;
 class LogInException
 {
 private:
-    int Index;
+    string val;
 
 public:
-    LogInException(int Index = 8)
-    {
-        if (Index > 4) // 5~8 아이디 생성
-            this->Index = Index;
+    LogInException(string val) {
+        this->val = val;
     }
+
     void Whats()
     {
         cout << "Please enter at least 5 digits of your ID." << endl;

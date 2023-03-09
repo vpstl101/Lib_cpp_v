@@ -5,19 +5,32 @@
 #ifndef LIBPROJECT1_LIBMANAGER_H
 #define LIBPROJECT1_LIBMANAGER_H
 
-
 #include "Container.h"
 
 using namespace std;
-class LibManager
-{
+
+class LibManager {
 private:
     Container<MemberShip *> mem;
 
 public:
-    LibManager(){};
+    enum {
+        LOG_IN = 1, MAKE_EMBER, FIND_MY_INFO, WITHDRAWAL, ADMIN, GENERAL
+    };
+
+    LibManager() {};
+
+    inline bool AdminLogin(string id, string pw);
+
+    void AdminMode();
+    void AddBooks();
+
+    void GeneralMode() const;
+
     void PrintMenu() const;
-    void Login();
+
+    int Login();
+
     void MakeMemberShip();
 };
 

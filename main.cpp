@@ -6,26 +6,31 @@
 // g++ -o "name" main.cpp 123.o
 using namespace std;
 
-int main()
-{
+int main() {
     LibManager manager;
+    int grade;
     int choice;
-    while (1)
-    {
+    while (1) {
         manager.PrintMenu();
         cout << "CHOICE : ";
         cin >> choice;
-        switch (choice)
-        {
-            case 1:
-                manager.Login();
+        switch (choice) {
+            case LibManager::LOG_IN:    // 로그인
+                choice=manager.Login();
                 break;
-
-            case 2:
+            case LibManager::MAKE_EMBER:    // 회원가입
                 manager.MakeMemberShip();
                 break;
-            case 0:
+            case LibManager::FIND_MY_INFO:  //내정보 수정
+                manager.MakeMemberShip();
                 break;
+            case LibManager::WITHDRAWAL:    //회원 탈퇴
+                manager.MakeMemberShip();
+                break;
+            case LibManager::ADMIN:    // 관리자모드
+                manager.AdminMode();
+                break;
+
             default:
                 break;
         }
