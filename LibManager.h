@@ -9,29 +9,37 @@
 
 using namespace std;
 
-class LibManager {
+class LibManager
+{
 private:
     Container<MemberShip *> mem;
 
 public:
-    enum {
-        LOG_IN = 1, MAKE_EMBER, FIND_MY_INFO, WITHDRAWAL, ADMIN, GENERAL
+    enum
+    {
+        GO_BACK = -1,
+        EXIT,
+        LOG_IN,
+        MAKE_EMBER,
+        FIND_MY_INFO,
+        WITHDRAWAL,
+        ADMIN,
+        GENERAL
     };
 
-    LibManager() {};
+    LibManager(){};
 
     inline bool AdminLogin(string id, string pw);
+    void PrintMenu() const;
 
     void AdminMode();
     void AddBooks();
 
-    void GeneralMode() const;
-
-    void PrintMenu() const;
+    void GeneralMenu();
 
     int Login();
 
-    void MakeMemberShip();
+    int MakeMemberShip();
 };
 
 

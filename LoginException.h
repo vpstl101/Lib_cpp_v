@@ -15,13 +15,13 @@ private:
     string val;
 
 public:
-    LogInException(string val) {
+    LogInException(string val)
+    {
         this->val = val;
     }
-
-    void Whats()
+    void IDReport()
     {
-        cout << "Please enter at least 5 digits of your ID." << endl;
+        cerr << "duplication or ID digits is from 3 ~ 5" << endl;
     }
 };
 

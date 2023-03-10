@@ -41,3 +41,7 @@
 0	555	7000754283663355	CMakeFiles/LibProject1.dir/main.cpp.obj	c74996442f662cd3
 7	558	7000754283683405	CMakeFiles/LibProject1.dir/LibManager.cpp.obj	d463c68337b02e0b
 559	834	7000754286073316	LibProject1.exe	e4e0f36d5b3f5d57
+1	919	7001455657438987	CMakeFiles/LibProject1.dir/Member.cpp.obj	14194fe70946fe25
+9	920	7001455657438987	CMakeFiles/LibProject1.dir/main.cpp.obj	c74996442f662cd3
+16	922	7001455657478983	CMakeFiles/LibProject1.dir/LibManager.cpp.obj	d463c68337b02e0b
+922	1189	7001455659718971	LibProject1.exe	e4e0f36d5b3f5d57
