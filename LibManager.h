@@ -6,17 +6,16 @@
 #define LIBPROJECT1_LIBMANAGER_H
 
 #include "Container.h"
+#include "AdminMode.h"
 
 using namespace std;
 
-class LibManager
-{
+class LibManager : public AdminMode {
 private:
     Container<MemberShip *> mem;
 
 public:
-    enum
-    {
+    enum {
         GO_BACK = -1,
         EXIT,
         LOG_IN,
@@ -27,13 +26,15 @@ public:
         GENERAL
     };
 
-    LibManager(){};
+    LibManager()
+            : AdminMode() {}; // ***상속 맞는지 확인하기
 
-    inline bool AdminLogin(string id, string pw);
+    // inline bool AdminLogin(string id, string pw);
     void PrintMenu() const;
 
-    void AdminMode();
-    void AddBooks();
+    int PrintMenuCopy();
+    // void AdminMode();
+    // void AddBooks();
 
     void GeneralMenu();
 

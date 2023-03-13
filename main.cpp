@@ -1,14 +1,6 @@
-
-
 #include <iostream>
 #include "LibManager.h"
-// g++ -c 123.cpp
-// g++ -o "name" main.cpp 123.o
-using namespace std;
-
-#include <iostream>
-#include "LibManager.h"
-//#include "AdminManager.h"
+#include "AdminMode.h"
 // g++ -c 123.cpp
 // g++ -o "name" main.cpp 123.o
 using namespace std;
@@ -21,6 +13,7 @@ int main()
     manager.PrintMenu();
     cout << "CHOICE : ";
     cin >> choice;
+    cout << "" << endl;
 
     while (1)
     {
@@ -31,7 +24,6 @@ int main()
                 break;
             case LibManager::MAKE_EMBER: // 회원가입
                 choice = manager.MakeMemberShip();
-                // manager.MakeMemberShip();
                 break;
             case LibManager::FIND_MY_INFO: // 내정보 수정
                 manager.MakeMemberShip();
@@ -40,13 +32,13 @@ int main()
                 manager.MakeMemberShip();
                 break;
             case LibManager::ADMIN: // 관리자모드
-                manager.AdminMode();
+                manager.AdminMenu();
                 break;
             case LibManager::GENERAL: // 일반모드
                 manager.GeneralMenu();
                 break;
-            case LibManager::GO_BACK: // 뒤로가기 **이부분을 수정해야 될듯
-                main();
+            case LibManager::GO_BACK: // 뒤로가기
+                choice = manager.PrintMenuCopy();
                 break;
             case LibManager::EXIT: // 나가기
                 exit(0);

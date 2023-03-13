@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "LibManager.h"
+#include "AdminMode.h"
 #include "Member.h"
 #include "LoginException.h"
 
@@ -17,6 +18,21 @@ void LibManager::PrintMenu() const
     cout << "3. Find ID/PW " << endl;         // ID/PW찾기
     cout << "4. Sign_out " << endl;           // 탈퇴
     cout << "0. Exit " << endl;
+}
+
+int LibManager::PrintMenuCopy()
+{
+    int choice;
+    cout << "------ Library Main Menu ------" << endl;
+    cout << "1. Log_in " << endl;
+    cout << "2. Sign_in Membership " << endl;
+    cout << "3. Find ID/PW " << endl;
+    cout << "4. Sign_out " << endl;
+    cout << "0. Exit " << endl;
+    cout << "CHOICE : ";
+    cin >> choice;
+    cout << "" << endl;
+    return choice;
 }
 
 void LibManager::GeneralMenu()
@@ -33,45 +49,15 @@ void LibManager::GeneralMenu()
     cin >> choice;
 }
 
-inline bool LibManager::AdminLogin(string id, string pw)
-{
-    return (id == "1111" && pw == "1111") ? true : false;
-}
-
-void LibManager::AdminMode()
-{
-    int choice;
-
-    cout << "===== Admin Mode Entering =====" << endl;
-    cout << "1. Add Book" << endl;    // 북 추가
-    cout << "2. Delet Book" << endl;  // 북 삭제
-    cout << "3. Member Info" << endl; // 회원정보
-    cout << "0. Exit " << endl;
-    cout << "choice : ";
-    cin >> choice;
-
-    // if (choice == 1)
-    //     AddBooks();
-}
-
-void LibManager::AddBooks()
-{
-    string bookName, writer;
-
-    cout << "=== Add Books ===" << endl;
-    cout << "Book Name : ";
-    cin >> bookName;
-    cout << "Writer : ";
-    cin >> writer;
-    cout << "" << endl;
-}
-
 int LibManager::Login()
 {
     string id, pw, name, phoneNum;
+    AdminMode ad; // 이게 맞는지 확인해야됨
+    int MemNum = mem.GetElemSum(); // 회원가입 ID 총 갯수
 
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
+    cout << "============ " << endl;
     cout << "ID : ";
     cin >> id;
     cout << "PW : ";
@@ -81,14 +67,12 @@ int LibManager::Login()
     if (id == "0" || pw == "0") // 뒤로가기
         return GO_BACK;
 
-    if (AdminLogin(id, pw)) // 관리자
+    if (ad.AdminLogin(id, pw)) // 관리자 **확인하기
         return ADMIN;
-
-    int MemNum = mem.GetElemSum(); // 회원가입 ID 총 갯수
 
     for (int i = 0; i < MemNum; i++)
     {
-        if (mem.GetItem(i)->GetID() == id && mem.GetItem(i)->GetPW() == pw)
+        if (mem.GetItem(i)->GetID() == id && mem.GetItem(i)->GetID() == pw)
         {
             cout << "++ Log_in Successful ++" << endl
                  << endl;
@@ -97,7 +81,7 @@ int LibManager::Login()
     }
     cout << "++ Log_in Failed ++" << endl
          << endl;
-    return LOG_IN;
+    return GO_BACK;
 }
 
 int LibManager::MakeMemberShip()
@@ -107,10 +91,10 @@ int LibManager::MakeMemberShip()
     int MemNum = mem.GetElemSum();
 
     cout << "=== Make Membership ===" << endl;
-    cout << "ID : ";
 
     try
     {
+        cout << "ID : ";
         cin >> id;
 
         if (id.size() < 3 || id.size() > 5) // 3~5 자리 검사
@@ -127,16 +111,22 @@ int LibManager::MakeMemberShip()
         ex.IDReport();
         return MakeMemberShip();
     }
-    /*     catch (LogInException &ex)
-        {
-            ex.IDReport();
-            return MakeMemberShip();
-        } */
 
+    try
+    {
+        cout << "PW : ";
+        cin >> pw;
+
+        if (pw.size() < 4 || pw.size() > 6) // 4~6 자리 검사
+            throw PWException(pw);
+    }
+    catch (PWException &ex)
+    {
+        ex.PWReport();
+        return MakeMemberShip();
+    }
     cout << "NAME : ";
     cin >> name;
-    cout << "PW : ";
-    cin >> pw;
     cout << "Phone NumBer : ";
     cin >> phoneNum;
     cout << "" << endl;

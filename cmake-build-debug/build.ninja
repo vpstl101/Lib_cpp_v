@@ -70,6 +70,13 @@ build CMakeFiles\LibProject1.dir\LibManager.cpp.obj: CXX_COMPILER__LibProject1_D
   TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
   TARGET_PDB = LibProject1.pdb
 
+build CMakeFiles\LibProject1.dir\AdminMode.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\AdminMode.cpp || cmake_object_order_depends_target_LibProject1
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  OBJECT_DIR = CMakeFiles\LibProject1.dir
+  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
+  TARGET_PDB = LibProject1.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LibProject1
@@ -78,7 +85,7 @@ build CMakeFiles\LibProject1.dir\LibManager.cpp.obj: CXX_COMPILER__LibProject1_D
 #############################################
 # Link the executable LibProject1.exe
 
-build LibProject1.exe: CXX_EXECUTABLE_LINKER__LibProject1_Debug CMakeFiles\LibProject1.dir\main.cpp.obj CMakeFiles\LibProject1.dir\Member.cpp.obj CMakeFiles\LibProject1.dir\LibManager.cpp.obj
+build LibProject1.exe: CXX_EXECUTABLE_LINKER__LibProject1_Debug CMakeFiles\LibProject1.dir\main.cpp.obj CMakeFiles\LibProject1.dir\Member.cpp.obj CMakeFiles\LibProject1.dir\LibManager.cpp.obj CMakeFiles\LibProject1.dir\AdminMode.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

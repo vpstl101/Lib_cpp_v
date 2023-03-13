@@ -12,16 +12,32 @@ using namespace std;
 class LogInException
 {
 private:
-    string val;
+    string id;
 
 public:
-    LogInException(string val)
+    LogInException(string id)
     {
-        this->val = val;
+        this->id = id;
     }
     void IDReport()
     {
         cerr << "duplication or ID digits is from 3 ~ 5" << endl;
+    }
+};
+
+class PWException
+{
+private:
+    string pw;
+
+public:
+    PWException(string pw)
+    {
+        this->pw = pw;
+    }
+    void PWReport()
+    {
+        cerr << "ID digits is from 4 ~ 6" << endl;
     }
 };
 
