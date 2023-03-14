@@ -8,6 +8,7 @@ using namespace std;
 int main()
 {
     LibManager manager;
+    AdminMode ad;
     int choice;
 
     manager.PrintMenu();
@@ -32,7 +33,7 @@ int main()
                 manager.MakeMemberShip();
                 break;
             case LibManager::ADMIN: // 관리자모드
-                manager.AdminMenu();
+                ad.AdminApplication();
                 break;
             case LibManager::GENERAL: // 일반모드
                 manager.GeneralMenu();
