@@ -5,14 +5,15 @@
 #ifndef LIBPROJECT1_LIBMANAGER_H
 #define LIBPROJECT1_LIBMANAGER_H
 
-#include "Container.h"
+#include "CreatArray.h"
 #include "AdminMode.h"
 
 using namespace std;
 
 class LibManager : public AdminMode {
 private:
-    Container<MemberShip *> mem;
+    CreatArray<MemberShip *> memArr;
+    int memNum;
 
 public:
     enum {
@@ -22,12 +23,12 @@ public:
         MAKE_EMBER,
         FIND_MY_INFO,
         WITHDRAWAL,
-        ADMIN,
+        //ADMIN,
         GENERAL
     };
 
     LibManager()
-            : AdminMode() {}; // ***상속 맞는지 확인하기
+            : AdminMode(), memNum(0) {}; // ***상속 맞는지 확인하기
 
     // inline bool AdminLogin(string id, string pw);
     void PrintMenu() const;
@@ -38,9 +39,10 @@ public:
 
     void GeneralMenu();
 
-    int Login();
+    void Login();
 
-    int MakeMemberShip();
+    void MakeMemberShip();
+    ~LibManager();
 };
 
 

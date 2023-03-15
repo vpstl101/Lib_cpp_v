@@ -10,8 +10,7 @@
 
 using namespace std;
 
-void LibManager::PrintMenu() const
-{
+void LibManager::PrintMenu() const {
     cout << "------ Library Main Menu ------" << endl;
     cout << "1. Log_in " << endl;             // 로그인
     cout << "2. Sign_in Membership " << endl; // 회원가입
@@ -20,8 +19,7 @@ void LibManager::PrintMenu() const
     cout << "0. Exit " << endl;
 }
 
-int LibManager::PrintMenuCopy()
-{
+int LibManager::PrintMenuCopy() {
     int choice;
     cout << "------ Library Main Menu ------" << endl;
     cout << "1. Log_in " << endl;
@@ -35,25 +33,22 @@ int LibManager::PrintMenuCopy()
     return choice;
 }
 
-void LibManager::GeneralMenu()
-{
+void LibManager::GeneralMenu() {
     int choice;
     cout << "===== Wellcome Intellectual Library =====" << endl;
     cout << "------ Menu ------" << endl;
-    cout << "1. My Info " << endl;       // 내정보
-    cout << "2. Borrow Books " << endl;  // 대출
-    cout << "3. Return Books " << endl;  // 반납
-    cout << "4. Keep Books " << endl;    // 장바구니
-    cout << "5. Book Search " << endl;   // 도서검색
+    cout << "1. My Book Info " << endl;       // 내정보
+    cout << "2. Book Search " << endl;   // 검색
+    cout << "3. Borrow Books " << endl;  // 대출
+    cout << "4. Return Books " << endl;  // 반납
+    cout << "5. Storage a Books " << endl;    // 장바구니
     cout << "6. Donate a Book " << endl; // 기증
     cin >> choice;
 }
 
-int LibManager::Login()
-{
+void LibManager::Login() {
     string id, pw, name, phoneNum;
-    AdminMode ad; // 이게 맞는지 확인해야됨
-    int MemNum = mem.GetElemSum(); // 회원가입 ID 총 갯수
+    AdminMode aMode; // 이게 맞는지 확인해야됨
 
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
@@ -65,63 +60,52 @@ int LibManager::Login()
     cout << "" << endl;
 
     if (id == "0" || pw == "0") // 뒤로가기
-        return GO_BACK;
+        return;
 
-    if (ad.AdminLogin(id, pw)) // 관리자 **확인하기
-        return ADMIN;
+    if (aMode.AdminLogin(id, pw)) // 관리자 **확인하기
+        aMode.AdminApplication();
 
-    for (int i = 0; i < MemNum; i++)
-    {
-        if (mem.GetItem(i)->GetID() == id && mem.GetItem(i)->GetID() == pw)
-        {
+    for (int i = 0; i < memNum; i++) {
+        if (memArr[i]->GetID() == id && memArr[i]->GetPW() == pw) {
             cout << "++ Log_in Successful ++" << endl
                  << endl;
-            return GENERAL;
+            GeneralMenu(); // gener 메뉴로
         }
     }
     cout << "++ Log_in Failed ++" << endl
          << endl;
-    return GO_BACK;
+    return;
 }
 
-int LibManager::MakeMemberShip()
-{
+void LibManager::MakeMemberShip() {
     string id, pw, name, phoneNum;
 
-    int MemNum = mem.GetElemSum();
-
     cout << "=== Make Membership ===" << endl;
-
-    try
-    {
+    try {
         cout << "ID : ";
         cin >> id;
 
         if (id.size() < 3 || id.size() > 5) // 3~5 자리 검사
             throw LogInException(id);
 
-        for (int i = 0; i < MemNum; i++)
-        {
-            if (mem.GetItem(i)->GetID() == id) // 중복 검사
+        for (int i = 0; i < memNum; i++) {
+            if (memArr[i]->GetID() == id) // 중복 검사
                 throw LogInException(id);
         }
     }
-    catch (LogInException &ex)
-    {
+    catch (LogInException &ex) {
         ex.IDReport();
         return MakeMemberShip();
     }
 
-    try
-    {
+    try {
         cout << "PW : ";
         cin >> pw;
 
         if (pw.size() < 4 || pw.size() > 6) // 4~6 자리 검사
             throw PWException(pw);
     }
-    catch (PWException &ex)
-    {
+    catch (PWException &ex) {
         ex.PWReport();
         return MakeMemberShip();
     }
@@ -134,7 +118,12 @@ int LibManager::MakeMemberShip()
     cout << "++ Member registration completed ++" << endl
          << endl;
 
-    mem.Insert(new MemberShip(id, pw, name, phoneNum));
+    memArr[memNum++] = new MemberShip(id, pw, name, phoneNum);
 
-    return GO_BACK;
+    //return GO_BACK;
+}
+
+LibManager::~LibManager() {
+    for (int i = 0; i < memNum; i++)
+        delete memArr[i];
 }

@@ -6,16 +6,17 @@
 #define LIBPROJECT1_ADMINMODE_H
 
 #include "BookInfo.h"
-#include "Container.h"
+#include "CreatArray.h"
 
 using namespace std;
 
 class AdminMode
 {
 private:
-    Container<BookInfo *> book;
+    CreatArray<BookInfo *> bookArr;
+    int arrNum;
 public:
-    AdminMode(){};
+    AdminMode() : arrNum(0){};
 
     bool AdminLogin(string id, string pw);
     void AdminMenu();
