@@ -123,6 +123,41 @@ void LibManager::MakeMemberShip() {
     //return GO_BACK;
 }
 
+void LibManager::Recover() {
+    int choice;
+    string rID, rPW, rName, rPH;
+
+    cout << "1. Find my ID " << endl;
+    cout << "2. Find my PW " << endl;
+    cout << "Choice : ";
+    cin >> choice;
+
+    if (choice == 1) {
+
+        cout << "My Name is : ";
+        cin >> rName;
+        for (int i = 0; i < memNum; i++) {
+            if (memArr[i]->GetName() == rName)
+                cout << "Your ID : " << memArr[i]->GetID() << endl;
+            else
+                cout << "No such information exists" << endl << endl;
+        }
+
+    } else if (choice == 2) {
+        cout << "My ID is : ";
+        cin >> rID;
+        for (int i = 0; i < memNum; i++) {
+            if (memArr[i]->GetID() == rID)
+                cout << "Your PW : " << memArr[i]->GetPW() << endl;
+            else
+                cout << "No such information exists" << endl << endl;
+        }
+
+    } else {
+        cout << "Plz Re-input"<< endl;
+    }
+}
+
 LibManager::~LibManager() {
     for (int i = 0; i < memNum; i++)
         delete memArr[i];

@@ -36,7 +36,7 @@ public:
     int PrintMenuCopy();
     // void AdminMode();
     // void AddBooks();
-
+    void Recover();
     void GeneralMenu();
 
     void Login();

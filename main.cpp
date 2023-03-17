@@ -25,18 +25,12 @@ int main()
             case LibManager::MAKE_EMBER: // 회원가입
                 manager.MakeMemberShip();
                 break;
-            case LibManager::FIND_MY_INFO: // 내정보 수정
-                manager.MakeMemberShip();
+            case LibManager::FIND_MY_INFO: // 내정보 찾기
+                manager.Recover();
                 break;
             case LibManager::WITHDRAWAL: // 회원 탈퇴
                 manager.MakeMemberShip();
                 break;
-//           case LibManager::ADMIN: // 관리자모드
-//                ad.AdminApplication();
-//                break;
-//            case LibManager::GENERAL: // 일반모드
-//                manager.GeneralMenu();
-//                break;
             case LibManager::GO_BACK: // 뒤로가기
                 choice = manager.PrintMenuCopy();
                 break;
