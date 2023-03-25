@@ -37,6 +37,7 @@ public:
     // void AdminMode();
     // void AddBooks();
     void Recover();
+//    void Through(string (&fptr)(), string info);
     void GeneralMenu();
 
     void Login();

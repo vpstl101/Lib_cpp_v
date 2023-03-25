@@ -77,6 +77,15 @@ void LibManager::Login() {
     return;
 }
 
+//void LibManager::Through(string (&fptr)(), string info) {
+//
+//
+//    for (int i = 0; i < memNum; i++) {
+//        if (memArr[i]->(&fptr)() == info)
+//            cout << "fptr(val) : " << memArr[i]->(&fptr)() << endl;
+//    }
+//}
+
 void LibManager::MakeMemberShip() {
     string id, pw, name, phoneNum;
 
@@ -132,29 +141,32 @@ void LibManager::Recover() {
     cout << "Choice : ";
     cin >> choice;
 
-    if (choice == 1) {
+    switch (choice) {
+        case 1:
+            cout << "My Name is : ";
+            cin >> rName;
 
-        cout << "My Name is : ";
-        cin >> rName;
-        for (int i = 0; i < memNum; i++) {
-            if (memArr[i]->GetName() == rName)
-                cout << "Your ID : " << memArr[i]->GetID() << endl;
-            else
-                cout << "No such information exists" << endl << endl;
-        }
-
-    } else if (choice == 2) {
-        cout << "My ID is : ";
-        cin >> rID;
-        for (int i = 0; i < memNum; i++) {
-            if (memArr[i]->GetID() == rID)
-                cout << "Your PW : " << memArr[i]->GetPW() << endl;
-            else
-                cout << "No such information exists" << endl << endl;
-        }
-
-    } else {
-        cout << "Plz Re-input"<< endl;
+            //Through(GetName(), rName);
+            /*for (int i = 0; i < memNum; i++) {
+                if (memArr[i]->GetName() == rName)
+                    cout << "Your ID : " << memArr[i]->GetID() << endl;
+                else
+                    cout << "No such information exists" << endl << endl;
+            }*/
+            break;
+        case 2:
+            cout << "My ID is : ";
+            cin >> rID;
+            for (int i = 0; i < memNum; i++) {
+                if (memArr[i]->GetID() == rID)
+                    cout << "Your PW : " << memArr[i]->GetPW() << endl;
+                else
+                    cout << "No such information exists" << endl << endl;
+            }
+            break;
+        default:
+            cout << "Plz Re-input" << endl;
+            break;
     }
 }
 
