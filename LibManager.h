@@ -36,13 +36,15 @@ public:
     int PrintMenuCopy();
     // void AdminMode();
     // void AddBooks();
-    void Recover();
+    void RecoverMenu();
+    void RecoverID();
+    void RecoverPW();
     void GeneralMenu();
-
+    void MemberDel();
     void Login();
 
     void MakeMemberShip();
-    ~LibManager();
+    /* ~LibManager(); */
 };
 
 

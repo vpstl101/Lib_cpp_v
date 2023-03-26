@@ -123,42 +123,77 @@ void LibManager::MakeMemberShip() {
     //return GO_BACK;
 }
 
-void LibManager::Recover() {
+void LibManager::RecoverMenu() {
     int choice;
-    string rID, rPW, rName, rPH;
 
     cout << "1. Find my ID " << endl;
     cout << "2. Find my PW " << endl;
     cout << "Choice : ";
     cin >> choice;
+    return (choice==1) ? RecoverID() : RecoverPW();
+    
+    //    cout << "Plz Re-input"<< endl;
+    
+}
 
-    if (choice == 1) {
+void LibManager::RecoverID(){
+    string rName;
 
         cout << "My Name is : ";
         cin >> rName;
         for (int i = 0; i < memNum; i++) {
-            if (memArr[i]->GetName() == rName)
-                cout << "Your ID : " << memArr[i]->GetID() << endl;
-            else
-                cout << "No such information exists" << endl << endl;
+            if (memArr[i]->GetName() != rName)
+            continue;
+            else cout << "Your ID : " << memArr[i]->GetID() << endl;
         }
+                       // cout << "No such information exists" << endl << endl;
 
-    } else if (choice == 2) {
-        cout << "My ID is : ";
+}
+
+void LibManager::RecoverPW(){
+    string rID;    
+    cout << "My ID is : ";
         cin >> rID;
         for (int i = 0; i < memNum; i++) {
             if (memArr[i]->GetID() == rID)
                 cout << "Your PW : " << memArr[i]->GetPW() << endl;
-            else
-                cout << "No such information exists" << endl << endl;
         }
+                        cout << "No such information exists" << endl << endl;
 
-    } else {
-        cout << "Plz Re-input"<< endl;
-    }
 }
 
-LibManager::~LibManager() {
+void LibManager::MemberDel(){
+string answer;
+string id, pw, name, phoneNum;
+ cout << "you Want to Withdraw Memership? " << endl;
+ cout<<"Are You Sure? (Y/n)" << endl;
+ cin >>answer;
+
+ if(answer =="y" || answer =="Y")
+ {
+    cout << "ID : ";
+    cin >> id;
+    cout << "PW : ";
+    cin >> pw;
+    cout << "NAME : ";
+    cin >> name;
+    cout << "Phone NumBer : ";
+    cin >> phoneNum;
+
+    for (int i = 0; i < memNum; i++){
+        if(memArr[i]->GetID() == id &&
+        memArr[i]->GetPW() ==pw &&
+        memArr[i]->GetName() == name &&
+        memArr[i]->GetPhoneNum()== phoneNum)
+            memArr[i] = memArr[i+1];
+            else cout << "Your Info is Incorrect" << endl;
+    }
+    --memNum;
+    }
+    else cout<< "Menu Return"<<endl;
+
+}
+/* LibManager::~LibManager() {
     for (int i = 0; i < memNum; i++)
         delete memArr[i];
-}
+} */
