@@ -26,10 +26,10 @@ int main()
                 manager.MakeMemberShip();
                 break;
             case LibManager::FIND_MY_INFO: // 내정보 찾기
-                manager.Recover();
+                manager.RecoverMenu();
                 break;
             case LibManager::WITHDRAWAL: // 회원 탈퇴
-                manager.MakeMemberShip();
+                manager.MemberDel();
                 break;
             case LibManager::GO_BACK: // 뒤로가기
                 choice = manager.PrintMenuCopy();
