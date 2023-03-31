@@ -7,6 +7,7 @@
 
 #include "BookInfo.h"
 #include "CreatArray.h"
+#include "BookLIstArray.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class AdminMode
 {
 private:
     CreatArray<BookInfo *> bookArr;
+    BookLIstArray<BookSetting *> BookArr;
     int arrNum;
 public:
     AdminMode() : arrNum(0){};
@@ -21,8 +23,9 @@ public:
     bool AdminLogin(string id, string pw);
     void AdminMenu();
     void AddBooks();
-    void AdminApplication();
+    void AdminAP();
     void ShowBookList();
+    void BookList();
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

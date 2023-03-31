@@ -2,6 +2,7 @@
 // Created by CMS on 2023-03-13.
 //
 #include <iostream>
+#include<vector>
 #include "AdminMode.h"
 
 bool AdminMode::AdminLogin(string id, string pw) {
@@ -50,7 +51,20 @@ void AdminMode::ShowBookList() {
     }
 }
 
-void AdminMode::AdminApplication() {
+void AdminMode::BookList()
+{
+    BookArr[0] = new BookSetting(1, "삼국지", "엮은이", "길벗");
+    BookArr[1] = new BookSetting(2, "이순신의 바다", "엮은이", "길벗");
+    BookArr[2] = new BookSetting(3, "가나다", "엮은이", "길벗");
+    BookArr[3] = new BookSetting(4, "4번째", "엮은이", "길벗");
+    BookArr[4] = new BookSetting(5, "5번쨰쨰", "엮은이", "길벗");
+    BookArr[5] = new BookSetting(6, "6번쨰쨰", "엮은이", "길벗");
+    BookArr[6] = new BookSetting(7, "7번쨰", "엮은이", "길벗");
+
+}
+
+
+void AdminMode::AdminAP() {
     int choice;
 
     while (1) {

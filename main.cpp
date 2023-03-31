@@ -5,20 +5,17 @@
 // g++ -o "name" main.cpp 123.o
 using namespace std;
 
-int main()
-{
+int main() {
     LibManager manager;
     int choice;
 
-    while (1)
-    {
+    while (1) {
         manager.PrintMenu();
         cout << "CHOICE : ";
         cin >> choice;
         cout << "" << endl;
 
-        switch (choice)
-        {
+        switch (choice) {
             case LibManager::LOG_IN: // 로그인
                 manager.Login();
                 break;
@@ -26,7 +23,7 @@ int main()
                 manager.MakeMemberShip();
                 break;
             case LibManager::FIND_MY_INFO: // 내정보 찾기
-                manager.RecoverMenu();
+                manager.Recover();
                 break;
             case LibManager::WITHDRAWAL: // 회원 탈퇴
                 manager.MemberDel();
@@ -36,8 +33,6 @@ int main()
                 break;
             case LibManager::EXIT: // 나가기
                 return 0;
-            default:
-                break;
         }
     }
     return 0;

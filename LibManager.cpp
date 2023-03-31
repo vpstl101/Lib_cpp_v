@@ -33,19 +33,6 @@ int LibManager::PrintMenuCopy() {
     return choice;
 }
 
-void LibManager::GeneralMenu() {
-    int choice;
-    cout << "===== Wellcome Intellectual Library =====" << endl;
-    cout << "------ Menu ------" << endl;
-    cout << "1. My Book Info " << endl;       // 내정보
-    cout << "2. Book Search " << endl;   // 검색
-    cout << "3. Borrow Books " << endl;  // 대출
-    cout << "4. Return Books " << endl;  // 반납
-    cout << "5. Storage a Books " << endl;    // 장바구니
-    cout << "6. Donate a Book " << endl; // 기증
-    cin >> choice;
-}
-
 void LibManager::Login() {
     string id, pw, name, phoneNum;
     AdminMode aMode; // 이게 맞는지 확인해야됨
@@ -63,7 +50,7 @@ void LibManager::Login() {
         return;
 
     if (aMode.AdminLogin(id, pw)) // 관리자 **확인하기
-        aMode.AdminApplication();
+        aMode.AdminAP();
 
     for (int i = 0; i < memNum; i++) {
         if (memArr[i]->GetID() == id && memArr[i]->GetPW() == pw) {
@@ -76,15 +63,6 @@ void LibManager::Login() {
          << endl;
     return;
 }
-
-//void LibManager::Through(string (&fptr)(), string info) {
-//
-//
-//    for (int i = 0; i < memNum; i++) {
-//        if (memArr[i]->(&fptr)() == info)
-//            cout << "fptr(val) : " << memArr[i]->(&fptr)() << endl;
-//    }
-//}
 
 void LibManager::MakeMemberShip() {
     string id, pw, name, phoneNum;
@@ -134,43 +112,80 @@ void LibManager::MakeMemberShip() {
 
 void LibManager::Recover() {
     int choice;
-    string rID, rPW, rName, rPH;
 
     cout << "1. Find my ID " << endl;
     cout << "2. Find my PW " << endl;
     cout << "Choice : ";
     cin >> choice;
+    if (choice == 1)
+        return RecoverID();
+    else if (choice == 2)
+        return RecoverPW();
+    else return;
+    //return (choice == 1) ? RecoverID() : RecoverPW();
+    //    cout << "Plz Re-input"<< endl;
 
-    switch (choice) {
-        case 1:
-            cout << "My Name is : ";
-            cin >> rName;
-
-            //Through(GetName(), rName);
-            /*for (int i = 0; i < memNum; i++) {
-                if (memArr[i]->GetName() == rName)
-                    cout << "Your ID : " << memArr[i]->GetID() << endl;
-                else
-                    cout << "No such information exists" << endl << endl;
-            }*/
-            break;
-        case 2:
-            cout << "My ID is : ";
-            cin >> rID;
-            for (int i = 0; i < memNum; i++) {
-                if (memArr[i]->GetID() == rID)
-                    cout << "Your PW : " << memArr[i]->GetPW() << endl;
-                else
-                    cout << "No such information exists" << endl << endl;
-            }
-            break;
-        default:
-            cout << "Plz Re-input" << endl;
-            break;
-    }
 }
 
-LibManager::~LibManager() {
+void LibManager::RecoverID() {
+    string rName;
+
+    cout << "My Name is : ";
+    cin >> rName;
+    for (int i = 0; i < memNum; i++) {
+        if (memArr[i]->GetName() != rName)
+            continue;
+        else cout << "Your ID : " << memArr[i]->GetID() << endl;
+    }
+    // cout << "No such information exists" << endl << endl;
+
+}
+
+void LibManager::RecoverPW() {
+    string rID;
+    cout << "My ID is : ";
+    cin >> rID;
+    for (int i = 0; i < memNum; i++) {
+        if (memArr[i]->GetID() == rID)
+            cout << "Your PW : " << memArr[i]->GetPW() << endl;
+    }
+    cout << "No such information exists" << endl << endl;
+
+}
+
+void LibManager::MemberDel() {
+    string answer;
+    string dId, dPw, dName, dPhoneNum;
+    cout << "you Want to Withdraw Memership? " << endl;
+    cout << "Are You Sure? (Y/n)" << endl;
+    cin >> answer;
+
+    if (answer == "y" || answer == "Y") {
+        cout << "ID : ";
+        cin >> dId;
+        cout << "PW : ";
+        cin >> dPw;
+        cout << "NAME : ";
+        cin >> dName;
+        cout << "Phone NumBer : ";
+        cin >> dPhoneNum;
+
+        for (int i = 0; i < memNum; i++) {
+            if (memArr[i]->GetID() == dId &&
+                memArr[i]->GetPW() == dPw &&
+                memArr[i]->GetName() == dName &&
+                memArr[i]->GetPhoneNum() == dPhoneNum) {
+                memArr[i] = memArr[i + 1];
+                cout << "I always got life-changing ideas from books. Good bye Thank U" << endl;
+                --memNum;
+            } else cout << "Your Info is Incorrect" << endl;
+        }
+
+    } else cout << "Menu Return" << endl;
+
+}
+
+/*LibManager::~LibManager() {
     for (int i = 0; i < memNum; i++)
         delete memArr[i];
-}
+}*/

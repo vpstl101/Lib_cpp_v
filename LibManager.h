@@ -37,14 +37,14 @@ public:
     // void AdminMode();
     // void AddBooks();
     void Recover();
-//    void Through(string (&fptr)(), string info);
+    void RecoverID();
+    void RecoverPW();
     void GeneralMenu();
-
+    void MemberDel();
     void Login();
 
     void MakeMemberShip();
-    ~LibManager();
+    /* ~LibManager(); */
 };
-
 
 #endif //LIBPROJECT1_LIBMANAGER_H

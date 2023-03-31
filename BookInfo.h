@@ -16,9 +16,13 @@ private:
 
 public:
     BookInfo(string title, string writer, bool status, string date);
+
     const string &GetTitle() const;
+
     const string &GetWriter() const;
+
     const bool &GetStatus() const;
+
     const string &GetDate() const;
 
 };
