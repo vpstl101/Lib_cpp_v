@@ -32,7 +32,6 @@ const string &MemberShip::GetName() const
     return name;
 }
 const string &MemberShip::GetPhoneNum() const
-
 {
     return phoneNum;
 }

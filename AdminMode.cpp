@@ -9,12 +9,12 @@ bool AdminMode::AdminLogin(string id, string pw) {
     return (id == "1111" && pw == "1111") ? true : false;
 }
 
-void AdminMode::AdminMenu() {
+void AdminMode::AdminMenu() const{
     cout << "===== Admin Mode Entering =====" << endl;
-    cout << "1. Add Book" << endl;    // 북 추가
-    cout << "2. Delet Book" << endl;  // 북 삭제
-    cout << "3. Member Info" << endl; // 회원정보
-    cout << "4. All Book List" << endl;    // 전체 북 리스트
+    cout << "1. Add Book" << endl;      // 북 추가
+    cout << "2. Delete Book" << endl;   // 북 삭제
+    cout << "3. Member Info" << endl;   // 회원정보
+    cout << "4. All Book List" << endl; // 전체 북 리스트
     cout << "0. Exit " << endl;
 }
 
@@ -28,39 +28,44 @@ void AdminMode::AddBooks() {
     cin >> title;
     cout << "Writer : ";
     cin >> writer;
-    cout << "Status 1 or 0 : ";
-    cin >> iStatus;
-    bStatus = iStatus;
+    cout << "(Status) ENABLE: 1 / UNABLE : 0  >>: ";
+    cin >> bStatus;
+    //bStatus = iStatus;
     cout << "Date : ";
     cin >> date;
     cout << "" << endl;
 
-    bookArr[arrNum++] = new BookInfo(title, writer, bStatus, date);
-
+    int Len = BookList();
+    bookArr[arrNum++] = new BookInfo(Len++,title, writer, bStatus, date);
 }
 
 void AdminMode::ShowBookList() {
 
+    //BookList();
+
     for (int i = 0; i < arrNum; i++) {
         cout << "===== Catalog of Books =====" << endl;
+        cout << "Primary Num : " << bookArr[i]->GetPrimary() << endl;
         cout << "Book Name : " << bookArr[i]->GetTitle() << endl;
         cout << "Writer : " << bookArr[i]->GetWriter() << endl;
-        cout << "Status : " << bookArr[i]->GetStatus() << endl;
+        bookArr[i]->GetStatPrint();
         cout << "Date : " << bookArr[i]->GetDate() << endl;
-        cout << "=====================================================" << endl;
+        cout << "======================================" << endl;
     }
 }
 
-void AdminMode::BookList()
+int AdminMode::BookList()
 {
-    BookArr[0] = new BookSetting(1, "삼국지", "엮은이", "길벗");
-    BookArr[1] = new BookSetting(2, "이순신의 바다", "엮은이", "길벗");
-    BookArr[2] = new BookSetting(3, "가나다", "엮은이", "길벗");
-    BookArr[3] = new BookSetting(4, "4번째", "엮은이", "길벗");
-    BookArr[4] = new BookSetting(5, "5번쨰쨰", "엮은이", "길벗");
-    BookArr[5] = new BookSetting(6, "6번쨰쨰", "엮은이", "길벗");
-    BookArr[6] = new BookSetting(7, "7번쨰", "엮은이", "길벗");
+    int Len = sizeof(bookArr)/sizeof(bookArr);
 
+    bookArr[arrNum++] = new BookInfo(Len++, "삼국지", "엮은이", ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(Len++, "이순신의 바다", "엮은이",ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(Len++, "3333", "엮은이", ENABLE,"123");
+    bookArr[arrNum++] = new BookInfo(Len++, "4번째", "엮은이", ENABLE,"123 ");
+    bookArr[arrNum++] = new BookInfo(Len++, "5번쨰쨰", "엮은이", ENABLE,"123");
+    bookArr[arrNum++] = new BookInfo(Len++, "6번쨰쨰", "엮은이", ENABLE,"123");
+    bookArr[arrNum++] = new BookInfo(Len++, "7번쨰", "엮은이", UNABLE,"123");
+    return Len;
 }
 
 
@@ -85,10 +90,8 @@ void AdminMode::AdminAP() {
                 break;
             case 0:
                 return;
-                break;
             default:
                 break;
-
         }
     }
 }

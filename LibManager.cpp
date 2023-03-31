@@ -5,6 +5,7 @@
 #include <iostream>
 #include "LibManager.h"
 #include "AdminMode.h"
+#include "GeneralMode.h"
 #include "Member.h"
 #include "LoginException.h"
 
@@ -36,7 +37,7 @@ int LibManager::PrintMenuCopy() {
 void LibManager::Login() {
     string id, pw, name, phoneNum;
     AdminMode aMode; // 이게 맞는지 확인해야됨
-
+    GeneralMode gMode;
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
     cout << "============ " << endl;
@@ -56,7 +57,7 @@ void LibManager::Login() {
         if (memArr[i]->GetID() == id && memArr[i]->GetPW() == pw) {
             cout << "++ Log_in Successful ++" << endl
                  << endl;
-            GeneralMenu(); // gener 메뉴로
+            gMode.GernerAP(); // gener 메뉴로
         }
     }
     cout << "++ Log_in Failed ++" << endl
@@ -150,7 +151,6 @@ void LibManager::RecoverPW() {
             cout << "Your PW : " << memArr[i]->GetPW() << endl;
     }
     cout << "No such information exists" << endl << endl;
-
 }
 
 void LibManager::MemberDel() {

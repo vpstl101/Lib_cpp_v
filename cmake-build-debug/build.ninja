@@ -41,82 +41,75 @@ include CMakeFiles\rules.ninja
 
 cmake_ninja_workdir = C$:\Users\CMS\CLionProjects\LibProject1\cmake-build-debug\
 # =============================================================================
-# Object build statements for EXECUTABLE target LibProject1
+# Object build statements for EXECUTABLE target main.cpp
 
 
 #############################################
-# Order-only phony target for LibProject1
+# Order-only phony target for main.cpp
 
-build cmake_object_order_depends_target_LibProject1: phony || CMakeFiles\LibProject1.dir
+build cmake_object_order_depends_target_main.cpp: phony || CMakeFiles\main.cpp.dir
 
-build CMakeFiles\LibProject1.dir\main.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\main.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\Member.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\Member.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
-build CMakeFiles\LibProject1.dir\Member.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\Member.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\LibManager.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\LibManager.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
-build CMakeFiles\LibProject1.dir\LibManager.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\LibManager.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\AdminMode.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\AdminMode.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
-build CMakeFiles\LibProject1.dir\AdminMode.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\AdminMode.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\BookInfo.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\BookInfo.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
-build CMakeFiles\LibProject1.dir\BookInfo.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\BookInfo.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\GeneralMode.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\GeneralMode.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
-build CMakeFiles\LibProject1.dir\GeneralMode.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\GeneralMode.cpp || cmake_object_order_depends_target_LibProject1
+build CMakeFiles\main.cpp.dir\main.cpp.obj: CXX_COMPILER__main.2ecpp_Debug C$:\Users\CMS\CLionProjects\LibProject1\main.cpp || cmake_object_order_depends_target_main.cpp
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
-
-build CMakeFiles\LibProject1.dir\BookSetting.cpp.obj: CXX_COMPILER__LibProject1_Debug C$:\Users\CMS\CLionProjects\LibProject1\BookSetting.cpp || cmake_object_order_depends_target_LibProject1
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
-  OBJECT_FILE_DIR = CMakeFiles\LibProject1.dir
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_PDB = LibProject1.pdb
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.cpp.dir
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_PDB = main.cpp.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target LibProject1
+# Link build statements for EXECUTABLE target main.cpp
 
 
 #############################################
-# Link the executable LibProject1.exe
+# Link the executable main.cpp.exe
 
-build LibProject1.exe: CXX_EXECUTABLE_LINKER__LibProject1_Debug CMakeFiles\LibProject1.dir\main.cpp.obj CMakeFiles\LibProject1.dir\Member.cpp.obj CMakeFiles\LibProject1.dir\LibManager.cpp.obj CMakeFiles\LibProject1.dir\AdminMode.cpp.obj CMakeFiles\LibProject1.dir\BookInfo.cpp.obj CMakeFiles\LibProject1.dir\GeneralMode.cpp.obj CMakeFiles\LibProject1.dir\BookSetting.cpp.obj
+build main.cpp.exe: CXX_EXECUTABLE_LINKER__main.2ecpp_Debug CMakeFiles\main.cpp.dir\Member.cpp.obj CMakeFiles\main.cpp.dir\LibManager.cpp.obj CMakeFiles\main.cpp.dir\AdminMode.cpp.obj CMakeFiles\main.cpp.dir\BookInfo.cpp.obj CMakeFiles\main.cpp.dir\GeneralMode.cpp.obj CMakeFiles\main.cpp.dir\main.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = CMakeFiles\LibProject1.dir
+  OBJECT_DIR = CMakeFiles\main.cpp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\LibProject1.dir\
-  TARGET_FILE = LibProject1.exe
-  TARGET_IMPLIB = LibProject1.lib
-  TARGET_PDB = LibProject1.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\main.cpp.dir\
+  TARGET_FILE = main.cpp.exe
+  TARGET_IMPLIB = main.cpp.lib
+  TARGET_PDB = main.cpp.pdb
 
 
 #############################################
@@ -144,7 +137,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build LibProject1: phony LibProject1.exe
+build main.cpp: phony main.cpp.exe
 
 # =============================================================================
 # Folder targets.
@@ -154,7 +147,7 @@ build LibProject1: phony LibProject1.exe
 #############################################
 # Folder: C:/Users/CMS/CLionProjects/LibProject1/cmake-build-debug
 
-build all: phony LibProject1.exe
+build all: phony main.cpp.exe
 
 # =============================================================================
 # Built-in targets

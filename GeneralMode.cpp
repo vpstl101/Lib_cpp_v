@@ -4,7 +4,6 @@
 #include <iostream>
 #include "GeneralMode.h"
 
-
 void GeneralMode::GeneralMenu() const {
     cout << "===== Wellcome Intellectual Library =====" << endl;
     cout << "------ Menu ------" << endl;
@@ -14,11 +13,9 @@ void GeneralMode::GeneralMenu() const {
     cout << "4. Return Books " << endl;     // 반납
     cout << "5. Storage a Books " << endl;  // 장바구니
     cout << "6. Donate a Book " << endl;    // 기증
-
 }
 
 void GeneralMode::GernerAP() {
-
     int choice;
 
     while (1) {

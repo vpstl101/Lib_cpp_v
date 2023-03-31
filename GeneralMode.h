@@ -8,18 +8,19 @@
 #include "BookInfo.h"
 #include "CreatArray.h"
 #include "AdminMode.h"
-#include <list>
 
-class GeneralMode : public AdminMode {
+
+class GeneralMode{
 private:
     CreatArray<BookInfo *> bookArr;
     int arrNum;
 
 public:
-    GeneralMode()
-        : AdminMode(), arrNum(0) {};
+    GeneralMode() :arrNum(0) {};
+            //: AdminMode(),
 
     void GeneralMenu() const;
+
     void GernerAP();
 
 };
