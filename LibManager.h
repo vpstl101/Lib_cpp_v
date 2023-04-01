@@ -23,8 +23,6 @@ public:
         MAKE_EMBER,
         FIND_MY_INFO,
         WITHDRAWAL,
-        //ADMIN,
-        GENERAL
     };
 
     LibManager()

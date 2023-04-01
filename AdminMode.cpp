@@ -13,7 +13,7 @@ void AdminMode::AdminMenu() const{
     cout << "===== Admin Mode Entering =====" << endl;
     cout << "1. Add Book" << endl;      // 북 추가
     cout << "2. Delete Book" << endl;   // 북 삭제
-    cout << "3. Member Info" << endl;   // 회원정보
+    cout << "3. Member Info" << endl;   // 회원 정보
     cout << "4. All Book List" << endl; // 전체 북 리스트
     cout << "0. Exit " << endl;
 }
@@ -68,17 +68,17 @@ void AdminMode::AdminAP() {
         cin >> choice;
 
         switch (choice) {
-            case 1:
+            case ADD:
                 AddBooks();
                 break;
-            case 2:
+            case DEL:
                 break;
-            case 3:
+            case INFO:
                 break;
-            case 4:
+            case ALL_LIST:
                 ShowBookList();
                 break;
-            case 0:
+            case EXIT:
                 return;
             default:
                 break;

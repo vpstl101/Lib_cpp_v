@@ -17,6 +17,13 @@ private:
     int arrNum;
     int listLen;
 public:
+    enum MENU{
+        EXIT,
+        ADD,
+        DEL,
+        INFO,
+        ALL_LIST
+    };
     enum BORROW {
         UNABLE,
         ENABLE
@@ -34,7 +41,7 @@ public:
 
     void ShowBookList();
 
-    void BookList();
+    virtual void BookList();
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

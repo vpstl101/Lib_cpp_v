@@ -15,6 +15,9 @@ void GeneralMode::GeneralMenu() const {
     cout << "6. Donate a Book " << endl;    // 기증
 }
 
+
+
+
 void GeneralMode::SearchBook()
 {
     string title;
@@ -29,6 +32,7 @@ void GeneralMode::SearchBook()
 
 void GeneralMode::GernerAP() {
     AdminMode admin;
+    BookList();
     int choice;
 
     while (1) {
