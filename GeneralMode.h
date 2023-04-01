@@ -10,16 +10,17 @@
 #include "AdminMode.h"
 
 
-class GeneralMode{
+class GeneralMode : public AdminMode{
 private:
     CreatArray<BookInfo *> bookArr;
     int arrNum;
 
 public:
-    GeneralMode() :arrNum(0) {};
-            //: AdminMode(),
+    GeneralMode() 
+        : AdminMode(), arrNum(0) {};
 
     void GeneralMenu() const;
+    void SearchBook();
 
     void GernerAP();
 

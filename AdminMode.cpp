@@ -18,9 +18,17 @@ void AdminMode::AdminMenu() const{
     cout << "0. Exit " << endl;
 }
 
+void AdminMode::BookList()
+{
+    bookArr[arrNum++] = new BookInfo(listLen++, "삼국지", "엮은이", ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "이순신의 바다", "엮은이",ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "3333", "엮은이", UNABLE,"123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "4번쨰", "엮은이", UNABLE,"123");
+}
+
 void AdminMode::AddBooks() {
     string title, writer, date;  // borrowDate, returnDate; borrow 대출 return 반납
-    int iStatus;
+    //int iStatus;
     bool bStatus;
 
     cout << "=== Add Books ===" << endl;
@@ -28,21 +36,17 @@ void AdminMode::AddBooks() {
     cin >> title;
     cout << "Writer : ";
     cin >> writer;
-    cout << "(Status) ENABLE: 1 / UNABLE : 0  >>: ";
+    cout << "(Status)ENABLE:1/UNABLE:0 >> : ";
     cin >> bStatus;
     //bStatus = iStatus;
     cout << "Date : ";
     cin >> date;
     cout << "" << endl;
-
-    int Len = BookList();
-    bookArr[arrNum++] = new BookInfo(Len++,title, writer, bStatus, date);
+    
+    bookArr[arrNum++] = new BookInfo(listLen++,title, writer, bStatus, date);
 }
 
 void AdminMode::ShowBookList() {
-
-    //BookList();
-
     for (int i = 0; i < arrNum; i++) {
         cout << "===== Catalog of Books =====" << endl;
         cout << "Primary Num : " << bookArr[i]->GetPrimary() << endl;
@@ -54,23 +58,9 @@ void AdminMode::ShowBookList() {
     }
 }
 
-int AdminMode::BookList()
-{
-    int Len = sizeof(bookArr)/sizeof(bookArr);
-
-    bookArr[arrNum++] = new BookInfo(Len++, "삼국지", "엮은이", ENABLE, "123");
-    bookArr[arrNum++] = new BookInfo(Len++, "이순신의 바다", "엮은이",ENABLE, "123");
-    bookArr[arrNum++] = new BookInfo(Len++, "3333", "엮은이", ENABLE,"123");
-    bookArr[arrNum++] = new BookInfo(Len++, "4번째", "엮은이", ENABLE,"123 ");
-    bookArr[arrNum++] = new BookInfo(Len++, "5번쨰쨰", "엮은이", ENABLE,"123");
-    bookArr[arrNum++] = new BookInfo(Len++, "6번쨰쨰", "엮은이", ENABLE,"123");
-    bookArr[arrNum++] = new BookInfo(Len++, "7번쨰", "엮은이", UNABLE,"123");
-    return Len;
-}
-
-
 void AdminMode::AdminAP() {
     int choice;
+    BookList();
 
     while (1) {
         AdminMenu();

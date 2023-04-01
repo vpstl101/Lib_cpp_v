@@ -15,13 +15,14 @@ private:
     CreatArray<BookInfo *> bookArr;
     //BookLIstArray<BookSetting *> BookArr;
     int arrNum;
+    int listLen;
 public:
     enum BORROW {
         UNABLE,
         ENABLE
     };
 
-    AdminMode() : arrNum(0) {};
+    AdminMode() : arrNum(0) ,listLen(1) {};
 
     bool AdminLogin(string id, string pw);
 
@@ -33,7 +34,7 @@ public:
 
     void ShowBookList();
 
-    int BookList();
+    void BookList();
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

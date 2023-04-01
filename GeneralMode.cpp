@@ -15,7 +15,20 @@ void GeneralMode::GeneralMenu() const {
     cout << "6. Donate a Book " << endl;    // 기증
 }
 
+void GeneralMode::SearchBook()
+{
+    string title;
+    cout << "Title : ";
+    cin>> title;
+    for (int i = 0; i < arrNum; i++) {
+        if (bookArr[i]->GetTitle() == title) {
+            cout << bookArr[i]->GetTitle() << endl << endl;
+        }
+    }
+}
+
 void GeneralMode::GernerAP() {
+    AdminMode admin;
     int choice;
 
     while (1) {
@@ -28,12 +41,19 @@ void GeneralMode::GernerAP() {
                 //AddBooks();
                 break;
             case 2:
+                SearchBook();
                 break;
             case 3:
                 break;
             case 4:
                 //howBookList();
                 break;
+            case 5:
+                //howBookList();
+                break;
+            case 6:
+                admin.AddBooks();
+                break;                
             case 0:
                 return;
                 break;
