@@ -6,7 +6,7 @@
 #define LIBPROJECT1_CREATARRAY_H
 
 #include "Member.h"
-
+#include "BookInfo.h"
 using namespace std;
 
 template<typename T>

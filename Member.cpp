@@ -10,8 +10,7 @@
 
 using namespace std;
 
-MemberShip::MemberShip(string id, string pw, string name, string phoneNum)
-{
+MemberShip::MemberShip(string id, string pw, string name, string phoneNum) {
     this->id = id;
     this->pw = pw;
     this->name = name;
@@ -27,11 +26,11 @@ const string &MemberShip::GetPW() const // 8자리 이상 정규식
 {
     return pw;
 }
-const string &MemberShip::GetName() const
-{
+
+const string &MemberShip::GetName() const {
     return name;
 }
-const string &MemberShip::GetPhoneNum() const
-{
+
+const string &MemberShip::GetPhoneNum() const {
     return phoneNum;
 }

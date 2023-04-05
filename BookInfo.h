@@ -26,8 +26,6 @@ public:
 
     const bool &Status() const;
 
-    const void GetStatPrint() const;
-
     const string &GetDate() const;
 
 };

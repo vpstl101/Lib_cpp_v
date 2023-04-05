@@ -8,8 +8,6 @@
 #include "BookInfo.h"
 #include "CreatArray.h"
 
-using namespace std;
-
 class AdminMode {
 private:
     CreatArray<BookInfo *> bookArr;
@@ -17,7 +15,7 @@ private:
     int arrNum;
     int listLen;
 public:
-    enum MENU{
+    enum MENU {
         EXIT,
         ADD,
         DEL,
@@ -29,7 +27,7 @@ public:
         ENABLE
     };
 
-    AdminMode() : arrNum(0) ,listLen(1) {};
+    AdminMode() : arrNum(0), listLen(1) {};
 
     bool AdminLogin(string id, string pw);
 
@@ -39,9 +37,9 @@ public:
 
     void AdminAP();
 
-    void ShowBookList();
+    virtual void ShowBookList();
 
-    virtual void BookList();
+    void BookList();
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

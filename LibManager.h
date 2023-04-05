@@ -12,10 +12,10 @@ using namespace std;
 
 class LibManager : public AdminMode {
 private:
-    CreatArray<MemberShip *> memArr;
     int memNum;
 
 public:
+    CreatArray<MemberShip *> memArr;
     enum {
         GO_BACK = -1,
         EXIT,
@@ -32,17 +32,24 @@ public:
     void PrintMenu() const;
 
     int PrintMenuCopy();
+
     // void AdminMode();
     // void AddBooks();
     void Recover();
+
     void RecoverID();
+
     void RecoverPW();
+
     void GeneralMenu();
+
     void MemberDel();
+
     void Login();
 
     void MakeMemberShip();
-    /* ~LibManager(); */
+
+   // ~LibManager(); // 확인요망
 };
 
 #endif //LIBPROJECT1_LIBMANAGER_H

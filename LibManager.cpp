@@ -185,7 +185,9 @@ void LibManager::MemberDel() {
 
 }
 
-/*LibManager::~LibManager() {
+/*
+LibManager::~LibManager() {
     for (int i = 0; i < memNum; i++)
         delete memArr[i];
-}*/
+}
+*/

@@ -9,34 +9,31 @@
 #include <string>
 
 using namespace std;
-class LogInException
-{
+
+class LogInException {
 private:
     string id;
 
 public:
-    LogInException(string id)
-    {
+    LogInException(string id) {
         this->id = id;
     }
-    void IDReport()
-    {
+
+    void IDReport() {
         cerr << "duplication or ID digits is from 3 ~ 5" << endl;
     }
 };
 
-class PWException
-{
+class PWException {
 private:
     string pw;
 
 public:
-    PWException(string pw)
-    {
+    PWException(string pw) {
         this->pw = pw;
     }
-    void PWReport()
-    {
+
+    void PWReport() {
         cerr << "ID digits is from 4 ~ 6" << endl;
     }
 };

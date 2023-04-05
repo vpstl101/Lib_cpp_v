@@ -1,15 +1,11 @@
-//
-// Created by CMS on 2023-03-13.
-//
 #include <iostream>
-#include<vector>
 #include "AdminMode.h"
 
 bool AdminMode::AdminLogin(string id, string pw) {
     return (id == "1111" && pw == "1111") ? true : false;
 }
 
-void AdminMode::AdminMenu() const{
+void AdminMode::AdminMenu() const {
     cout << "===== Admin Mode Entering =====" << endl;
     cout << "1. Add Book" << endl;      // 북 추가
     cout << "2. Delete Book" << endl;   // 북 삭제
@@ -18,12 +14,11 @@ void AdminMode::AdminMenu() const{
     cout << "0. Exit " << endl;
 }
 
-void AdminMode::BookList()
-{
+void AdminMode::BookList() {
     bookArr[arrNum++] = new BookInfo(listLen++, "삼국지", "엮은이", ENABLE, "123");
-    bookArr[arrNum++] = new BookInfo(listLen++, "이순신의 바다", "엮은이",ENABLE, "123");
-    bookArr[arrNum++] = new BookInfo(listLen++, "3333", "엮은이", UNABLE,"123");
-    bookArr[arrNum++] = new BookInfo(listLen++, "4번쨰", "엮은이", UNABLE,"123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "이순신의 바다", "엮은이", ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "3333", "엮은이", UNABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "4번쨰", "엮은이", UNABLE, "123");
 }
 
 void AdminMode::AddBooks() {
@@ -42,19 +37,20 @@ void AdminMode::AddBooks() {
     cout << "Date : ";
     cin >> date;
     cout << "" << endl;
-    
-    bookArr[arrNum++] = new BookInfo(listLen++,title, writer, bStatus, date);
+
+    bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, date);
 }
 
+// 내 위시리시트 추가 하기
 void AdminMode::ShowBookList() {
     for (int i = 0; i < arrNum; i++) {
         cout << "===== Catalog of Books =====" << endl;
         cout << "Primary Num : " << bookArr[i]->GetPrimary() << endl;
         cout << "Book Name : " << bookArr[i]->GetTitle() << endl;
         cout << "Writer : " << bookArr[i]->GetWriter() << endl;
-        bookArr[i]->GetStatPrint();
+        cout << ((bookArr[i]->Status() == ENABLE) ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
         cout << "Date : " << bookArr[i]->GetDate() << endl;
-        cout << "======================================" << endl;
+        cout << "================================" << endl;
     }
 }
 

@@ -5,6 +5,7 @@
 #include "BookInfo.h"
 #include "AdminMode.h"
 
+
 BookInfo::BookInfo(int primaryKey, string title, string writer, bool status, string date) {
     this->primaryKey = primaryKey;
     this->title = title;
@@ -29,12 +30,11 @@ const bool &BookInfo::Status() const {
     return status;
 }
 
-const void BookInfo::GetStatPrint() const {
-    cout << (Status() == AdminMode::BORROW::ENABLE ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
-}
+/*void BookInfo::GetStatPrint(){
+   cout<< ((Status() == AdminMode::BORROW::ENABLE) ?  "ENABEL" : "UNABLE") << endl;
+}*/
 
 const string &BookInfo::GetDate() const {
     return date;
 }
-
 

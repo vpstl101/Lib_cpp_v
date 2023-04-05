@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "GeneralMode.h"
+using namespace std;
 
 void GeneralMode::GeneralMenu() const {
     cout << "===== Wellcome Intellectual Library =====" << endl;
@@ -14,9 +15,6 @@ void GeneralMode::GeneralMenu() const {
     cout << "5. Storage a Books " << endl;  // 장바구니
     cout << "6. Donate a Book " << endl;    // 기증
 }
-
-
-
 
 void GeneralMode::SearchBook()
 {
