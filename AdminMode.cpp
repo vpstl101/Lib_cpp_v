@@ -1,5 +1,8 @@
 #include <iostream>
+#include <cctype>
+#include <string>
 #include "AdminMode.h"
+
 
 bool AdminMode::AdminLogin(string id, string pw) {
     return (id == "1111" && pw == "1111") ? true : false;
@@ -22,8 +25,7 @@ void AdminMode::BookList() {
 }
 
 void AdminMode::AddBooks() {
-    string title, writer, date;  // borrowDate, returnDate; borrow 대출 return 반납
-    //int iStatus;
+    string title, writer, ActDate;  // ActDate, ExpDate; borrow 대출
     bool bStatus;
 
     cout << "=== Add Books ===" << endl;
@@ -35,10 +37,26 @@ void AdminMode::AddBooks() {
     cin >> bStatus;
     //bStatus = iStatus;
     cout << "Date : ";
-    cin >> date;
+    cin >> ActDate;
     cout << "" << endl;
 
-    bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, date);
+    bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, ActDate);
+}
+
+void AdminMode::DelBook() {
+    string val;
+    cout << "Primary Num or Title : enter : " << endl;
+    cin >>val;
+
+    //if(isdigit(stoi(val)))
+
+    //cin.ignore(val);
+    //getline(cin, val);
+
+    for (int i = 0; i < arrNum; i++) {
+        if (bookArr[i]->GetTitle() == val)
+            cout<<bookArr[i]->GetTitle()<<endl;
+    }
 }
 
 // 내 위시리시트 추가 하기
@@ -68,6 +86,7 @@ void AdminMode::AdminAP() {
                 AddBooks();
                 break;
             case DEL:
+                DelBook();
                 break;
             case INFO:
                 break;

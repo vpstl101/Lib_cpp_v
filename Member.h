@@ -19,8 +19,6 @@ private:
 public:
     MemberShip(string _id, string _pw, string _name, string _phoneNum);
 
-    MemberShip() {};
-
     const string &GetID() const;
 
     const string &GetPW() const;

@@ -11,6 +11,7 @@
 
 using namespace std;
 
+//메뉴
 void LibManager::PrintMenu() const {
     cout << "------ Library Main Menu ------" << endl;
     cout << "1. Log_in " << endl;             // 로그인
@@ -34,9 +35,10 @@ int LibManager::PrintMenuCopy() {
     return choice;
 }
 
+//로그인
 void LibManager::Login() {
     string id, pw, name, phoneNum;
-    AdminMode aMode; // 이게 맞는지 확인해야됨
+    AdminMode *aMode = new AdminMode();
     GeneralMode gMode;
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
@@ -50,8 +52,8 @@ void LibManager::Login() {
     if (id == "0" || pw == "0") // 뒤로가기
         return;
 
-    if (aMode.AdminLogin(id, pw)) // 관리자 **확인하기
-        aMode.AdminAP();
+    if (aMode->AdminLogin(id, pw)) // 관리자 **확인하기
+        aMode->AdminAP();
 
     for (int i = 0; i < memNum; i++) {
         if (memArr[i]->GetID() == id && memArr[i]->GetPW() == pw) {

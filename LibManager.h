@@ -6,16 +6,14 @@
 #define LIBPROJECT1_LIBMANAGER_H
 
 #include "CreatArray.h"
-#include "AdminMode.h"
 
 using namespace std;
 
-class LibManager : public AdminMode {
+class LibManager {
 private:
-    int memNum;
-
-public:
     CreatArray<MemberShip *> memArr;
+    int memNum;
+public:
     enum {
         GO_BACK = -1,
         EXIT,
@@ -25,8 +23,7 @@ public:
         WITHDRAWAL,
     };
 
-    LibManager()
-            : AdminMode(), memNum(0) {}; // ***상속 맞는지 확인하기
+    LibManager() : memNum(0) {};             // ***상속 맞는지 확인하기
 
     // inline bool AdminLogin(string id, string pw);
     void PrintMenu() const;
@@ -49,7 +46,9 @@ public:
 
     void MakeMemberShip();
 
-   // ~LibManager(); // 확인요망
+    virtual void ShowBookList() = 0;
+
+    // ~LibManager(); // 확인요망
 };
 
 #endif //LIBPROJECT1_LIBMANAGER_H

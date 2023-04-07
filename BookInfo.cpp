@@ -6,8 +6,8 @@
 #include "AdminMode.h"
 
 
-BookInfo::BookInfo(int primaryKey, string title, string writer, bool status, string date) {
-    this->primaryKey = primaryKey;
+BookInfo::BookInfo(int pk, string title, string writer, bool status, string date) {
+    this->pk = pk;
     this->title = title;
     this->writer = writer;
     this->status = status;
@@ -15,7 +15,7 @@ BookInfo::BookInfo(int primaryKey, string title, string writer, bool status, str
 }
 
 const int &BookInfo::GetPrimary() {
-    return primaryKey;
+    return pk;
 }
 
 const string &BookInfo::GetTitle() const {

@@ -3,8 +3,6 @@
 //
 
 #include <iostream>
-#include <cstring>
-
 #include "Member.h"
 #include "LoginException.h"
 

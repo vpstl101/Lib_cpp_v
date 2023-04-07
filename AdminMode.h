@@ -7,8 +7,9 @@
 
 #include "BookInfo.h"
 #include "CreatArray.h"
+#include "LibManager.h"
 
-class AdminMode {
+class AdminMode : public LibManager {
 private:
     CreatArray<BookInfo *> bookArr;
     //BookLIstArray<BookSetting *> BookArr;
@@ -27,7 +28,8 @@ public:
         ENABLE
     };
 
-    AdminMode() : arrNum(0), listLen(1) {};
+    AdminMode()
+            : LibManager(), arrNum(0), listLen(1) {};
 
     bool AdminLogin(string id, string pw);
 
@@ -40,6 +42,9 @@ public:
     virtual void ShowBookList();
 
     void BookList();
+
+    void DelBook();
+
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

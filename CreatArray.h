@@ -4,7 +4,7 @@
 
 #ifndef LIBPROJECT1_CREATARRAY_H
 #define LIBPROJECT1_CREATARRAY_H
-
+#include <iostream>
 #include "Member.h"
 #include "BookInfo.h"
 using namespace std;

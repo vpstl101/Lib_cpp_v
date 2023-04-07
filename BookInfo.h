@@ -9,14 +9,14 @@ using namespace std;
 
 class BookInfo {
 private:
-    int primaryKey;
+    int pk;
     string title;
     string writer;
     bool status;
     string date;
 
 public:
-    BookInfo(int primaryKey, string title, string writer, bool status, string date);
+    BookInfo(int pk, string title, string writer, bool status, string date);
 
     const int &GetPrimary();
 
