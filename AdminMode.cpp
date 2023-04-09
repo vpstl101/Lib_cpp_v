@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cctype>
+#include <sstream>
 #include <string>
 #include "AdminMode.h"
-
+#include "GeneralMode.h"
 
 bool AdminMode::AdminLogin(string id, string pw) {
     return (id == "1111" && pw == "1111") ? true : false;
@@ -18,10 +18,11 @@ void AdminMode::AdminMenu() const {
 }
 
 void AdminMode::BookList() {
-    bookArr[arrNum++] = new BookInfo(listLen++, "삼국지", "엮은이", ENABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "one", "엮은이", ENABLE, "123");
     bookArr[arrNum++] = new BookInfo(listLen++, "이순신의 바다", "엮은이", ENABLE, "123");
     bookArr[arrNum++] = new BookInfo(listLen++, "3333", "엮은이", UNABLE, "123");
-    bookArr[arrNum++] = new BookInfo(listLen++, "4번쨰", "엮은이", UNABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "four4", "엮은이", UNABLE, "123");
+    bookArr[arrNum++] = new BookInfo(listLen++, "four4", "지은이", UNABLE, "333");
 }
 
 void AdminMode::AddBooks() {
@@ -44,32 +45,16 @@ void AdminMode::AddBooks() {
 }
 
 void AdminMode::DelBook() {
-    string val;
-    cout << "Primary Num or Title : enter : " << endl;
-    cin >>val;
 
-    //if(isdigit(stoi(val)))
-
-    //cin.ignore(val);
-    //getline(cin, val);
-
-    for (int i = 0; i < arrNum; i++) {
-        if (bookArr[i]->GetTitle() == val)
-            cout<<bookArr[i]->GetTitle()<<endl;
-    }
+    GeneralMode gMode;
+    gMode.SearchBook();
 }
 
 // 내 위시리시트 추가 하기
 void AdminMode::ShowBookList() {
-    for (int i = 0; i < arrNum; i++) {
-        cout << "===== Catalog of Books =====" << endl;
-        cout << "Primary Num : " << bookArr[i]->GetPrimary() << endl;
-        cout << "Book Name : " << bookArr[i]->GetTitle() << endl;
-        cout << "Writer : " << bookArr[i]->GetWriter() << endl;
-        cout << ((bookArr[i]->Status() == ENABLE) ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
-        cout << "Date : " << bookArr[i]->GetDate() << endl;
-        cout << "================================" << endl;
-    }
+    cout << "===== a Library Catalog =====" << endl;
+    for (int i = 0; i < arrNum; i++)
+        bookArr[i]->GetList();
 }
 
 void AdminMode::AdminAP() {
@@ -90,7 +75,7 @@ void AdminMode::AdminAP() {
                 break;
             case INFO:
                 break;
-            case ALL_LIST:
+            case LIST:
                 ShowBookList();
                 break;
             case EXIT:

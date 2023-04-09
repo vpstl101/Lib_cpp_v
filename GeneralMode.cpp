@@ -2,6 +2,7 @@
 // Created by CMS on 2023-03-27.
 //
 #include <iostream>
+#include <sstream>
 #include "GeneralMode.h"
 using namespace std;
 
@@ -18,12 +19,22 @@ void GeneralMode::GeneralMenu() const {
 
 void GeneralMode::SearchBook()
 {
-    string title;
-    cout << "Title : ";
-    cin>> title;
+    string sVal;
+    stringstream ssVal;
+    cout << "Primary Num or Title : ";
+    cin >>sVal;
+
+        //admin 북리스트가 g에 없다
     for (int i = 0; i < arrNum; i++) {
-        if (bookArr[i]->GetTitle() == title) {
-            cout << bookArr[i]->GetTitle() << endl << endl;
+        if (bookArr[i]->GetTitle() == sVal)
+            bookArr[i]->GetList();
+        else
+        {
+            int iVal;
+            ssVal << sVal;
+            ssVal >>iVal;
+            if (bookArr[i]->GetPrimary() == iVal)
+                bookArr[i]->GetList();
         }
     }
 }

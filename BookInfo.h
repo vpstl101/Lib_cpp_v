@@ -28,6 +28,7 @@ public:
 
     const string &GetDate() const;
 
+    void GetList();
 };
 
 

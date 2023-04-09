@@ -21,7 +21,7 @@ public:
         ADD,
         DEL,
         INFO,
-        ALL_LIST
+        LIST
     };
     enum BORROW {
         UNABLE,
@@ -39,7 +39,9 @@ public:
 
     void AdminAP();
 
-    virtual void ShowBookList();
+    //virtual void GetList();
+
+   virtual void ShowBookList();
 
     void BookList();
 

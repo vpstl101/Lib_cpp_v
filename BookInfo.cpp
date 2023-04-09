@@ -30,11 +30,17 @@ const bool &BookInfo::Status() const {
     return status;
 }
 
-/*void BookInfo::GetStatPrint(){
-   cout<< ((Status() == AdminMode::BORROW::ENABLE) ?  "ENABEL" : "UNABLE") << endl;
-}*/
-
 const string &BookInfo::GetDate() const {
     return date;
+}
+
+void BookInfo::GetList(){
+    cout << "===== a Library Catalog =====" << endl;
+    cout << "Primary Num : " << GetPrimary() << endl;
+    cout << "Book Name : " << GetTitle() << endl;
+    cout << "Writer : " << GetWriter() << endl;
+    cout << ((Status() == AdminMode::ENABLE) ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
+    cout << "Date : " << GetDate() << endl;
+    cout << "===========================" << endl;
 }
 
