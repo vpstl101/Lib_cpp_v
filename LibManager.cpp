@@ -110,8 +110,6 @@ void LibManager::MakeMemberShip() {
          << endl;
 
     memArr[memNum++] = new MemberShip(id, pw, name, phoneNum);
-
-    //return GO_BACK;
 }
 
 void LibManager::Recover() {

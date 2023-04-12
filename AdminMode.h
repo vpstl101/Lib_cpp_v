@@ -5,19 +5,18 @@
 #ifndef LIBPROJECT1_ADMINMODE_H
 #define LIBPROJECT1_ADMINMODE_H
 
-#include "BookInfo.h"
+
 #include "CreatArray.h"
 #include "LibManager.h"
 
 class AdminMode : public LibManager {
 public:
     CreatArray<BookInfo *> bookArr;
-    //BookLIstArray<BookSetting *> BookArr;
     int arrNum;
     int listLen;
 
 public:
-    enum MENU {
+    enum A_MENU {
         EXIT,
         ADD,
         DEL,
@@ -40,9 +39,7 @@ public:
 
     void AdminAP();
 
-    //virtual void GetList();
-
-   void ShowBookList();
+    void ShowBookList();
 
     void BookList();
 

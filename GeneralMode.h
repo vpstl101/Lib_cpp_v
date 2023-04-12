@@ -13,10 +13,17 @@ class GeneralMode : public AdminMode {
 public:
     GeneralMode()
             : AdminMode() {};
-
+public:
+    enum G_MENU {
+        EXIT,
+        BOOK_INFO,
+        SEARCH,
+        LOAN,
+        RETURN,
+        STORAGE,
+        DONATE
+    };
     void GeneralMenu() const;
-
-    void SearchBook();
 
     void GernerAP();
 

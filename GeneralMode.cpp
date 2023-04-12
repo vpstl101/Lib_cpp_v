@@ -2,7 +2,6 @@
 // Created by CMS on 2023-03-27.
 //
 #include <iostream>
-#include <sstream>
 #include "GeneralMode.h"
 using namespace std;
 
@@ -30,24 +29,24 @@ void GeneralMode::GernerAP() {
         cin >> choice;
 
         switch (choice) {
-            case 1:
+            case BOOK_INFO:
                 //AddBooks();
                 break;
-            case 2:
+            case SEARCH:
                 admin.SearchBook();
                 break;
-            case 3:
+            case LOAN:
                 break;
-            case 4:
+            case RETURN:
                 //howBookList();
                 break;
-            case 5:
+            case STORAGE:
                 //howBookList();
                 break;
-            case 6:
+            case DONATE:
                 admin.AddBooks();
                 break;                
-            case 0:
+            case EXIT:
                 return;
                 break;
             default:

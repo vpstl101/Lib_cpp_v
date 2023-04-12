@@ -36,7 +36,6 @@ void AdminMode::AddBooks() {
     cin >> writer;
     cout << "(Status)ENABLE:1/UNABLE:0 >> : ";
     cin >> bStatus;
-    //bStatus = iStatus;
     cout << "Date : ";
     cin >> ActDate;
     cout << "" << endl;
