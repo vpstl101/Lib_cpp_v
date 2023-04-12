@@ -17,31 +17,11 @@ void GeneralMode::GeneralMenu() const {
     cout << "6. Donate a Book " << endl;    // 기증
 }
 
-void GeneralMode::SearchBook()
-{
-    string sVal;
-    stringstream ssVal;
-    cout << "Primary Num or Title : ";
-    cin >>sVal;
 
-        //admin 북리스트가 g에 없다
-    for (int i = 0; i < arrNum; i++) {
-        if (bookArr[i]->GetTitle() == sVal)
-            bookArr[i]->GetList();
-        else
-        {
-            int iVal;
-            ssVal << sVal;
-            ssVal >>iVal;
-            if (bookArr[i]->GetPrimary() == iVal)
-                bookArr[i]->GetList();
-        }
-    }
-}
 
 void GeneralMode::GernerAP() {
     AdminMode admin;
-    BookList();
+    admin.BookList();
     int choice;
 
     while (1) {
@@ -54,7 +34,7 @@ void GeneralMode::GernerAP() {
                 //AddBooks();
                 break;
             case 2:
-                SearchBook();
+                admin.SearchBook();
                 break;
             case 3:
                 break;

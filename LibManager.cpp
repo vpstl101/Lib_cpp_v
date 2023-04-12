@@ -38,7 +38,8 @@ int LibManager::PrintMenuCopy() {
 //로그인
 void LibManager::Login() {
     string id, pw, name, phoneNum;
-    AdminMode *aMode = new AdminMode();
+    AdminMode *pAmode, Amode;
+    pAmode = &Amode;
     GeneralMode gMode;
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
@@ -52,8 +53,8 @@ void LibManager::Login() {
     if (id == "0" || pw == "0") // 뒤로가기
         return;
 
-    if (aMode->AdminLogin(id, pw)) // 관리자 **확인하기
-        aMode->AdminAP();
+    if (pAmode->AdminLogin(id, pw)) // 관리자 **확인하기
+        pAmode->AdminAP();
 
     for (int i = 0; i < memNum; i++) {
         if (memArr[i]->GetID() == id && memArr[i]->GetPW() == pw) {

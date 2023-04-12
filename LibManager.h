@@ -46,7 +46,7 @@ public:
 
     void MakeMemberShip();
 
-    virtual void ShowBookList() = 0;
+    //virtual void ShowBookList() = 0;
 
     // virtual void GetList() = 0;
 

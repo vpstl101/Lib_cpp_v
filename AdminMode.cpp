@@ -44,10 +44,24 @@ void AdminMode::AddBooks() {
     bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, ActDate);
 }
 
-void AdminMode::DelBook() {
+void AdminMode::SearchBook() {
+    string sVal;
+    stringstream ssVal;
+    cout << "Primary Num or Title : ";
+    cin >> sVal;
 
-    GeneralMode gMode;
-    gMode.SearchBook();
+    //admin 북리스트가 g에 없다
+    for (int i = 0; i < arrNum; i++) {
+        if (bookArr[i]->GetTitle() == sVal)
+            bookArr[i]->GetList();
+        else {
+            int iVal;
+            ssVal << sVal;
+            ssVal >> iVal;
+            if (bookArr[i]->GetPrimary() == iVal)
+                bookArr[i]->GetList();
+        }
+    }
 }
 
 // 내 위시리시트 추가 하기
@@ -71,7 +85,7 @@ void AdminMode::AdminAP() {
                 AddBooks();
                 break;
             case DEL:
-                DelBook();
+                SearchBook();
                 break;
             case INFO:
                 break;

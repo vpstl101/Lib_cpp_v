@@ -6,30 +6,31 @@
 using namespace std;
 
 int main() {
-    LibManager *manager = new AdminMode();
+    LibManager *pManager, manager;
+    pManager=&manager;
     int choice;
 
     while (1) {
-        manager->PrintMenu();
+        pManager->PrintMenu();
         cout << "CHOICE : ";
         cin >> choice;
         cout << "" << endl;
 
         switch (choice) {
             case LibManager::LOG_IN:        // 로그인
-                manager->Login();
+                pManager->Login();
                 break;
             case LibManager::MAKE_EMBER:    // 회원가입
-                manager->MakeMemberShip();
+                manager.MakeMemberShip();
                 break;
             case LibManager::FIND_MY_INFO:  // 내정보 찾기
-                manager->Recover();
+                manager.Recover();
                 break;
             case LibManager::WITHDRAWAL:    // 회원 탈퇴
-                manager->MemberDel();
+                manager.MemberDel();
                 break;
             case LibManager::GO_BACK:       // 뒤로가기
-                choice = manager->PrintMenuCopy();
+                choice = manager.PrintMenuCopy();
                 break;
             case LibManager::EXIT:          // 나가기
                 return 0;

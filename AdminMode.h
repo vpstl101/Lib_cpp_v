@@ -10,11 +10,12 @@
 #include "LibManager.h"
 
 class AdminMode : public LibManager {
-private:
+public:
     CreatArray<BookInfo *> bookArr;
     //BookLIstArray<BookSetting *> BookArr;
     int arrNum;
     int listLen;
+
 public:
     enum MENU {
         EXIT,
@@ -41,11 +42,11 @@ public:
 
     //virtual void GetList();
 
-   virtual void ShowBookList();
+   void ShowBookList();
 
     void BookList();
 
-    void DelBook();
+    void SearchBook();
 
 };
 

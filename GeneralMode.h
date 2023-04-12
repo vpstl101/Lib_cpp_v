@@ -10,13 +10,9 @@
 #include "AdminMode.h"
 
 class GeneralMode : public AdminMode {
-private:
-    CreatArray<BookInfo *> bookArr;
-    int arrNum;
-
 public:
     GeneralMode()
-            : AdminMode(), arrNum(0) {};
+            : AdminMode() {};
 
     void GeneralMenu() const;
 
