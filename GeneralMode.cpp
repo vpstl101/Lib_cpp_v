@@ -33,7 +33,7 @@ void GeneralMode::GernerAP() {
                 //AddBooks();
                 break;
             case SEARCH:
-                admin.SearchBook();
+                //admin.SearchBook();
                 break;
             case LOAN:
                 break;

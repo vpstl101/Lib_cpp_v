@@ -43,32 +43,55 @@ void AdminMode::AddBooks() {
     bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, ActDate);
 }
 
-void AdminMode::SearchBook() {
+int AdminMode::SearchBook()
+{
     string sVal;
     stringstream ssVal;
     cout << "Primary Num or Title : ";
     cin >> sVal;
 
-    //admin 북리스트가 g에 없다
-    for (int i = 0; i < arrNum; i++) {
+    // admin 북리스트가 g에 없다
+    for (int i = 0; i < arrNum; i++)
+    {
         if (bookArr[i]->GetTitle() == sVal)
+        {
             bookArr[i]->GetList();
-        else {
+            return i;
+        }
+        else
+        {
             int iVal;
             ssVal << sVal;
             ssVal >> iVal;
             if (bookArr[i]->GetPrimary() == iVal)
+            {
                 bookArr[i]->GetList();
+                return i;
+            }
         }
     }
 }
 
+void AdminMode::DeletBook()
+{
+    int num = SearchBook();
+    if (num >= 0)
+    {
+        for (int i = num; i < arrNum + 1; i++)
+            bookArr[i] = bookArr[i + 1];    //--arrNum;
+        cout << "success" << endl;
+    }
+    else
+        cout << "fail" << endl;
+}
+
 // 내 위시리시트 추가 하기
-void AdminMode::ShowBookList() {
-    cout << "===== a Library Catalog =====" << endl;
+void AdminMode::ShowBookList()
+{
     for (int i = 0; i < arrNum; i++)
         bookArr[i]->GetList();
 }
+
 
 void AdminMode::AdminAP() {
     int choice;
@@ -84,7 +107,7 @@ void AdminMode::AdminAP() {
                 AddBooks();
                 break;
             case DEL:
-                SearchBook();
+                DeletBook();
                 break;
             case INFO:
                 break;

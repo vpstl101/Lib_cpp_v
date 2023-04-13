@@ -43,7 +43,9 @@ public:
 
     void BookList();
 
-    void SearchBook();
+    int SearchBook();
+
+    void DeletBook();
 
 };
 
