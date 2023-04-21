@@ -12,8 +12,10 @@
 class AdminMode : public LibManager {
 public:
     CreatArray<BookInfo *> bookArr;
+    CreatArray<MemberShip *> RmemArr;
     int arrNum;
     int listLen;
+    int rMmemNum;
 
 public:
     enum A_MENU {
@@ -29,7 +31,7 @@ public:
     };
 
     AdminMode()
-            : LibManager(), arrNum(0), listLen(1) {};
+            : LibManager(), arrNum(0), listLen(1), rMmemNum(0){};
 
     bool AdminLogin(string id, string pw);
 
@@ -47,6 +49,9 @@ public:
 
     void DeletBook();
 
+    //void MemSndData(CreatArray<MemberShip *> &data, int num, string id, string pw, string name, string phoneNum);
+
+    void ShowMemList();
 
 };
 

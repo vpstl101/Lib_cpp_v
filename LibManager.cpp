@@ -43,6 +43,7 @@ void LibManager::Login() {
     string id, pw, name, phoneNum;
     AdminMode *pAmode, Amode;
     pAmode = &Amode;
+
     GeneralMode gMode;
     cout << "===Log_in===" << endl;
     cout << "0. Go Back " << endl;
@@ -73,7 +74,7 @@ void LibManager::Login() {
 
 void LibManager::MakeMemberShip() {
     string id, pw, name, phoneNum;
-
+    AdminMode *pAmode = new AdminMode();
     cout << "=== Make Membership ===" << endl;
     try {
         cout << "ID : ";
@@ -112,8 +113,9 @@ void LibManager::MakeMemberShip() {
     cout << "++ Member registration completed ++" << endl
          << endl;
 
-    memArr[memNum++] = new MemberShip(id, pw, name, phoneNum);
 
+    memArr[memNum++] = new MemberShip(id, pw, name, phoneNum);
+    //pAmode->MemSndData(memArr, memNum, id, pw, name, phoneNum);
 }
 
 void LibManager::Recover() {
@@ -190,12 +192,12 @@ void LibManager::MemberDel() {
 
 }
 
-void LibManager::ShowMemList(){
 
+
+void LibManager::ShowMemList(){
     cout<<"gogogo"<<endl;
     for (int i = 0; i < memNum; i++)
         memArr[i]->GetMemList();
-
 }
 
 

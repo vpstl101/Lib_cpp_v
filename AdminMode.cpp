@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 #include "AdminMode.h"
-#include "GeneralMode.h"
+#include "Member.h"
 
 bool AdminMode::AdminLogin(string id, string pw) {
     return (id == "1111" && pw == "1111") ? true : false;
@@ -43,28 +43,22 @@ void AdminMode::AddBooks() {
     bookArr[arrNum++] = new BookInfo(listLen++, title, writer, bStatus, ActDate);
 }
 
-int AdminMode::SearchBook()
-{
+int AdminMode::SearchBook() {
     string sVal;
     stringstream ssVal;
     cout << "Primary Num or Title : ";
     cin >> sVal;
 
     // admin 북리스트가 g에 없다
-    for (int i = 0; i < arrNum; i++)
-    {
-        if (bookArr[i]->GetTitle() == sVal)
-        {
+    for (int i = 0; i < arrNum; i++) {
+        if (bookArr[i]->GetTitle() == sVal) {
             bookArr[i]->GetList();
             return i;
-        }
-        else
-        {
+        } else {
             int iVal;
             ssVal << sVal;
             ssVal >> iVal;
-            if (bookArr[i]->GetPrimary() == iVal)
-            {
+            if (bookArr[i]->GetPrimary() == iVal) {
                 bookArr[i]->GetList();
                 return i;
             }
@@ -73,34 +67,57 @@ int AdminMode::SearchBook()
     return -1;
 }
 
-void AdminMode::DeletBook()
-{
+void AdminMode::DeletBook() {
     int num = SearchBook();
-    if (num >= 0)
-    {
+    if (num >= 0) {
         for (int i = num; i < arrNum; i++)
             bookArr[i] = bookArr[i + 1];
         --arrNum;
         cout << "success" << endl;
-    }
-    else
+    } else
         cout << "fail" << endl;
 }
 
 // 내 위시리시트 추가 하기
-void AdminMode::ShowBookList()
-{
+void AdminMode::ShowBookList() {
     for (int i = 0; i < arrNum; i++)
         bookArr[i]->GetList();
 }
 
+/*void AdminMode::MemSndData(CreatArray<MemberShip *> &data, int num, string id, string pw, string name, string phoneNum) {
+    string *rID, *rPW, rPhone;
+
+    string rName;
+    rMmemNum=num;
+    RmemArr[rMmemNum++] =new MemberShip(id, pw, name, phoneNum);
+
+    //RmemArr[rMmemNum++] = new MemberShip(id, pw, name, phoneNum);
+
+}*/
+
+void AdminMode::ShowMemList() {
+    cout << "ad" << endl;
+    for (int i = 0; i < rMmemNum; i++)
+    {
+        cout << "====Pk : ["<<i<<"]===="<< endl;
+        cout << "ID : " << RmemArr[i]->GetID() << endl;
+        cout << "PW : " << RmemArr[i]->GetPW() << endl;
+        cout << "Name : " << RmemArr[i]->GetName() << endl;
+        cout << "Phone Num : " << RmemArr[i]->GetPhoneNum() << endl;
+        cout << "===========================" << endl;
+    }
+
+}
 
 void AdminMode::AdminAP() {
+
+
+
     LibManager *gLib, Lib;
     LibManager *pLib2 = new AdminMode();
-    gLib=&Lib;
+    gLib = &Lib;
 
-
+    string a;
     int choice;
     BookList();
 
@@ -117,7 +134,7 @@ void AdminMode::AdminAP() {
                 DeletBook();
                 break;
             case INFO:
-                pLib2->ShowMemList();
+                ShowMemList();
                 break;
             case LIST:
                 ShowBookList();

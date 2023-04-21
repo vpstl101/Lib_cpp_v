@@ -43,4 +43,3 @@ void BookInfo::GetList() const{
     cout << "Date : " << date << endl;
     cout << "===========================" << endl;
 }
-
