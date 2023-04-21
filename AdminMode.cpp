@@ -70,6 +70,7 @@ int AdminMode::SearchBook()
             }
         }
     }
+    return -1;
 }
 
 void AdminMode::DeletBook()
@@ -77,8 +78,9 @@ void AdminMode::DeletBook()
     int num = SearchBook();
     if (num >= 0)
     {
-        for (int i = num; i < arrNum + 1; i++)
-            bookArr[i] = bookArr[i + 1];    //--arrNum;
+        for (int i = num; i < arrNum; i++)
+            bookArr[i] = bookArr[i + 1];
+        --arrNum;
         cout << "success" << endl;
     }
     else
@@ -94,6 +96,11 @@ void AdminMode::ShowBookList()
 
 
 void AdminMode::AdminAP() {
+    LibManager *gLib, Lib;
+    LibManager *pLib2 = new AdminMode();
+    gLib=&Lib;
+
+
     int choice;
     BookList();
 
@@ -110,6 +117,7 @@ void AdminMode::AdminAP() {
                 DeletBook();
                 break;
             case INFO:
+                pLib2->ShowMemList();
                 break;
             case LIST:
                 ShowBookList();

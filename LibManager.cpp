@@ -3,6 +3,9 @@
 //
 
 #include <iostream>
+#include <functional>
+
+
 #include "LibManager.h"
 #include "AdminMode.h"
 #include "GeneralMode.h"
@@ -110,6 +113,7 @@ void LibManager::MakeMemberShip() {
          << endl;
 
     memArr[memNum++] = new MemberShip(id, pw, name, phoneNum);
+
 }
 
 void LibManager::Recover() {
@@ -185,6 +189,15 @@ void LibManager::MemberDel() {
     } else cout << "Menu Return" << endl;
 
 }
+
+void LibManager::ShowMemList(){
+
+    cout<<"gogogo"<<endl;
+    for (int i = 0; i < memNum; i++)
+        memArr[i]->GetMemList();
+
+}
+
 
 /*
 LibManager::~LibManager() {

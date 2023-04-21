@@ -47,6 +47,7 @@ public:
 
     void DeletBook();
 
+
 };
 
 #endif //LIBPROJECT1_ADMINMODE_H

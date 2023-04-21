@@ -26,6 +26,8 @@ public:
     const string &GetName() const;
 
     const string &GetPhoneNum() const;
+
+    void GetMemList() const;
 };
 
 

@@ -34,13 +34,13 @@ const string &BookInfo::GetDate() const {
     return date;
 }
 
-void BookInfo::GetList(){
+void BookInfo::GetList() const{
     cout << "===== a Library Catalog =====" << endl;
-    cout << "Primary Num : " << GetPrimary() << endl;
-    cout << "Book Name : " << GetTitle() << endl;
-    cout << "Writer : " << GetWriter() << endl;
-    cout << ((Status() == AdminMode::ENABLE) ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
-    cout << "Date : " << GetDate() << endl;
+    cout << "Primary Num : " << pk << endl;
+    cout << "Book Name : " << title << endl;
+    cout << "Writer : " << writer << endl;
+    cout << ((status == AdminMode::BORROW::ENABLE) ? "Stat : ENABEL" : "Stat : UNABLE") << endl;
+    cout << "Date : " << date << endl;
     cout << "===========================" << endl;
 }
 

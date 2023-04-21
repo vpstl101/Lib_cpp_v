@@ -23,7 +23,7 @@ public:
         WITHDRAWAL,
     };
 
-    LibManager() : memNum(0) {};             // ***상속 맞는지 확인하기
+    LibManager() : memNum(0) {};
 
     // inline bool AdminLogin(string id, string pw);
     void PrintMenu() const;
@@ -45,6 +45,8 @@ public:
     void Login();
 
     void MakeMemberShip();
+
+    void ShowMemList();
 
     //virtual void ShowBookList() = 0;
 

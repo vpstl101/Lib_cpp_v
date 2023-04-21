@@ -32,8 +32,13 @@ int main() {
             case LibManager::GO_BACK:       // 뒤로가기
                 choice = manager.PrintMenuCopy();
                 break;
+            case 6:                         // test
+                pManager->ShowMemList();
+                break;
             case LibManager::EXIT:          // 나가기
                 return 0;
+            default:
+                break;
         }
     }
     return 0;

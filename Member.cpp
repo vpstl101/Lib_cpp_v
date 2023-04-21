@@ -32,3 +32,13 @@ const string &MemberShip::GetName() const {
 const string &MemberShip::GetPhoneNum() const {
     return phoneNum;
 }
+
+void MemberShip::GetMemList() const{
+    cout << "===== a Library Catalog =====" << endl;
+    cout << "ID : " << id << endl;
+    cout << "PW : " << pw << endl;
+    cout << "Name : " << name << endl;
+    cout << "Phone Num : " << phoneNum << endl;
+    cout << "===========================" << endl;
+    
+}

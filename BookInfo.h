@@ -28,7 +28,7 @@ public:
 
     const string &GetDate() const;
 
-    void GetList();
+    void GetList() const;
 };
 
 
